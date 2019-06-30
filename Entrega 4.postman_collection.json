@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "91055078-aad2-46d2-912e-dbfbe839e0e8",
+		"name": "Entrega 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post Message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"date\":\"2016-07-17\",\n\"id\":0,\n\"lat\":25.2048,\n\"long\":55.2708,\n\"message\":\"Mensaje nuevo, tengo sueño.\",\n\"receptant\":2,\n\"sender\":56\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/messages",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"messages"
+					],
+					"query": [
+						{
+							"key": "sender",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "receptan",
+							"value": "34",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Message",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\":827\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/messages",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Messages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"incluye\":\"hola/nebcoins\",\n\"opcion\":\"\",\n\"no\":\"quiero/invertir/despido/comprar/compré\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/search",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
