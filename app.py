@@ -12,13 +12,13 @@ texto = ["incluye", "opcion", "no"]
 
 # Levantamos el servidor de mongo. Esto no es necesario, puede abrir
 # una terminal y correr mongod. El DEVNULL hace que no vemos el output
-mongod = subprocess.Popen('mongod', stdout=subprocess.DEVNULL)
+# mongod = subprocess.Popen('mongod', stdout=subprocess.DEVNULL)
 # # Nos aseguramos que cuando el programa termine, mongod no quede corriendo
-# uri = "mongodb://grupo39:grupo39@146.155.13.149/grupo39?authSource=admin"
+uri = "mongodb://grupo39:grupo39@146.155.13.149/grupo39?authSource=admin"
 # atexit.register(mongod.kill)
 
 # # El cliente se levanta en localhost:5432
-# client = MongoClient(uri)
+client = MongoClient(uri)
 # # Utilizamos la base de datos 'api'
 # db = client["grupo39"]
 # # # Seleccionamos la colección de usuarios
