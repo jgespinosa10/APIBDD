@@ -5,7 +5,7 @@ import os
 import atexit
 import subprocess
 
-USER_KEYS = ['name', 'last_name', 'occupation', 'follows', 'age']
+USER_KEYS = ['usuid', 'usunombre', 'usufecha_nac', 'usucorreo', 'usunacionalidad']
 MESS_KEYS = ['id', 'message', 'sender', 'receptant', 'lat', 'long', 'date']
 texto = ["incluye", "opcion", "no"]
 
@@ -80,7 +80,21 @@ def create_message():
     data = {key: request.json[key] for key in MESS_KEYS}
     count = messages.count_documents({})
     data["id"] = count + 1
-    result = messages.insert_one(data)
+    result = users.insert_one(data)
+    if result:
+        message = "1 mensaje creado"
+        success = True
+    else:
+        message = "No se pudo crear el mensaje"
+        success = False
+    return json.jsonify({'success': success, 'message': message})
+
+@app.route("/user", methods=['POST'])
+def create_user():
+    data = {key: request.json[key] for key in USER_KEYS}
+    count = users.count_documents({})
+    data["id"] = count + 1
+    result = users.insert_one(data)
     if result:
         message = "1 mensaje creado"
         success = True
