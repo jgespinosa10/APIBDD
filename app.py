@@ -1,9 +1,9 @@
 from flask import Flask, request, json
 from pymongo import MongoClient
 from json import dumps
-# import os
-# import atexit
-# import subprocess
+import os
+import atexit
+import subprocess
 
 # USER_KEYS = ['name', 'last_name', 'occupation', 'follows', 'age']
 # MESS_KEYS = ['id', 'message', 'sender', 'receptant', 'lat', 'long', 'date']
