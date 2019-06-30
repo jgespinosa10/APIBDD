@@ -5,9 +5,9 @@ import os
 import atexit
 import subprocess
 
-# USER_KEYS = ['name', 'last_name', 'occupation', 'follows', 'age']
-# MESS_KEYS = ['id', 'message', 'sender', 'receptant', 'lat', 'long', 'date']
-# texto = ["incluye", "opcion", "no"]
+USER_KEYS = ['name', 'last_name', 'occupation', 'follows', 'age']
+MESS_KEYS = ['id', 'message', 'sender', 'receptant', 'lat', 'long', 'date']
+texto = ["incluye", "opcion", "no"]
 
 
 # # Levantamos el servidor de mongo. Esto no es necesario, puede abrir
