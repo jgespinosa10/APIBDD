@@ -55,6 +55,12 @@ def get_user_mensaje(uid1, uid2):
     mensajes2 = list(messages.find({"$and": [{"sender": uid2}, {"receptant": uid1}]}, {"_id": 0}))
     return json.jsonify(mensajes1 + mensajes2)
 
+@app.route("/sendrec/<int:uid>")
+def get_mensajes_recividos(uid):
+    mensajes1 = list(messages.find({"receptant": uid}, {"_id": 0}))
+    mensajes2 = list(messages.find({"sender": uid}, {"_id": 0}))
+    return json.jsonify(mensajes1 + mensajes2)
+
 
 @app.route("/user/<int:uid>")
 def get_user(uid):
