@@ -25,8 +25,8 @@ db = client["grupo39"]
 messages = db.messages
 users = db.usuarios
 
-for i in list(users.find({}, {"_id":0})):
-    print(str(i).encode("utf-8"))
+# for i in list(users.find({}, {"_id":0})):
+#     print(str(i).encode("utf-8"))
 
 # Iniciamos la aplicación de flask
 app = Flask(__name__)
@@ -138,5 +138,5 @@ def buscar():
     return result
 
 
-# if os.name == '__main__':
-#     app.run()
+if os.name == '__main__':
+    app.run()
