@@ -108,7 +108,7 @@ def delete_message():
     return json.jsonify({'result': 'success', 'message': message})
 
 
-@app.route('/search')
+@app.route('/search', methods=['POST'])
 def buscar():
     text = {key: request.json[key] for key in texto}
 
