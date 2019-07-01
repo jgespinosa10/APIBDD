@@ -80,7 +80,7 @@ def create_message():
     data = {key: request.json[key] for key in MESS_KEYS}
     count = messages.count_documents({})
     data["id"] = count + 1
-    result = users.insert_one(data)
+    result = messages.insert_one(data)
     if result:
         message = "1 mensaje creado"
         success = True
