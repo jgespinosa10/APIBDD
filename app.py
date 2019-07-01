@@ -25,8 +25,8 @@ db = client["grupo39"]
 messages = db.messages
 users = db.usuarios
 
-# for i in list(messages.find({}, {"_id":0})):
-#     print(str(i).encode("utf-8"))
+for i in list(users.find({}, {"_id":0})):
+    print(str(i).encode("utf-8"))
 
 # Iniciamos la aplicación de flask
 app = Flask(__name__)
@@ -92,8 +92,7 @@ def create_message():
 @app.route("/user", methods=['POST'])
 def create_user():
     data = {key: request.json[key] for key in USER_KEYS}
-    count = users.count_documents({})
-    data["id"] = count + 1
+    data["id"] = data["usuid"]
     result = users.insert_one(data)
     if result:
         message = "1 mensaje creado"
@@ -139,5 +138,5 @@ def buscar():
     return result
 
 
-if os.name == '__main__':
-    app.run()
+# if os.name == '__main__':
+#     app.run()
